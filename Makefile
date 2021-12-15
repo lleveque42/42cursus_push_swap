@@ -1,29 +1,46 @@
-SRCS	= $(addprefix srcs/, push_swap.c)
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/15 09:52:26 by lleveque          #+#    #+#              #
+#    Updated: 2021/12/15 09:52:26 by lleveque         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-OBJS	= ${SRCS:.c=.o}
+SRCS = $(addprefix srcs/, push_swap.c)
 
-NAME	= push_swap
+OBJS = ${SRCS:.c=.o}
 
-INC     = includes
+NAME = push_swap
 
-RM		= rm -f
+LIBFT = libft/libft.a
 
-CC		= gcc
+CC = clang
 
-CFLAGS	= -Wall -Wextra -Werror
+RM = rm -f
 
-.c.o:
-			${CC} ${CFLAGS} -I ${INC} -c $< -o ${<:.c=.o}
+CFLAGS = -Wall -Wextra -Werror
+
+all:	${NAME}
 
 ${NAME}:	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+			@make -C libft
+			@${CC} ${OBJS} ${CFLAG} -o ${NAME} ${LIBFT}
 
-all:		${NAME}
+.c.o:
+	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 clean:
-			${RM} ${OBJS}
+		@make -C libft clean
+		${RM} ${OBJS}
 
 fclean:		clean
 			${RM} ${NAME}
+			${RM} ${LIBFT}
 
-re:			fclean all
+re: fclean all
+
+.PHONY: all clean fclean re

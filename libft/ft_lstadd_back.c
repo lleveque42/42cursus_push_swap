@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 10:20:44 by lleveque         ###   ########.fr       */
+/*   Created: 2021/12/01 11:20:35 by lleveque          #+#    #+#             */
+/*   Updated: 2021/12/01 18:17:06 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	check_error(av[1]);
-	
+	t_list	*tmp;
+
+	tmp = *alst;
+	if (!new) 
+		return ;
+	else if (!*alst)
+	{
+		*alst = new;
+		return ;
+	}
+	while (tmp -> next)
+		tmp = tmp -> next;
+	tmp -> next = new;
 }

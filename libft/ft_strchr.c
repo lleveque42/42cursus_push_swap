@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 10:20:44 by lleveque         ###   ########.fr       */
+/*   Created: 2021/11/25 18:35:06 by lleveque          #+#    #+#             */
+/*   Updated: 2021/11/30 11:44:44 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strchr(const char *s, int c)
 {
-	check_error(av[1]);
-	
+	if (!(unsigned char)c)
+		return ((char *)s + ft_strlen(s));
+	while (*s)
+	{
+		if (*s == (unsigned char)c)
+			return ((char *)s);
+		s++;
+	}
+	return (0);
 }

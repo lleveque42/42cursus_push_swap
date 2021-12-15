@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 10:20:44 by lleveque         ###   ########.fr       */
+/*   Created: 2021/11/30 22:25:48 by lleveque          #+#    #+#             */
+/*   Updated: 2021/12/01 10:12:13 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstnew(void *content)
 {
-	check_error(av[1]);
-	
+	t_list	*new;
+
+	new = malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new -> content = content;
+	new -> next = NULL;
+	return (new);
 }

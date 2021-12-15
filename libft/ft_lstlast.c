@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 10:20:44 by lleveque         ###   ########.fr       */
+/*   Created: 2021/12/01 11:12:24 by lleveque          #+#    #+#             */
+/*   Updated: 2021/12/01 11:18:03 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "libft.h"
 
-int	main(int ac, char **av)
+t_list	*ft_lstlast(t_list *lst)
 {
-	check_error(av[1]);
-	
+	t_list	*tmp;
+
+	tmp = lst;
+	if (!tmp)
+		return (NULL);
+	while (tmp -> next)
+		tmp = tmp -> next;
+	return (tmp);
 }

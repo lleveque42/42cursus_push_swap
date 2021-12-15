@@ -1,19 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 10:20:44 by lleveque         ###   ########.fr       */
+/*   Created: 2021/11/24 11:56:59 by lleveque          #+#    #+#             */
+/*   Updated: 2021/11/29 14:01:09 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	check_error(av[1]);
-	
+	size_t	i;
+
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	if (src < dest)
+	{
+		i = n;
+		while (i >= 1)
+		{
+			((char *)dest)[i - 1] = ((char *)src)[i - 1];
+			i--;
+		}
+	}
+	else
+	{
+		while (i < n)
+		{
+			((char *)dest)[i] = ((char *)src)[i];
+			i++;
+		}
+	}
+	return (dest);
 }
