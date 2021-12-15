@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_hex_putlptr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 13:43:42 by lleveque         ###   ########.fr       */
+/*   Created: 2021/12/09 10:50:23 by lleveque          #+#    #+#             */
+/*   Updated: 2021/12/09 12:07:32 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../ft_printf.h"
 
-#include "libft/libft.h"
-#include "libftprintf/ft_printf.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+int	ft_hex_putlptr(unsigned long long int n)
+{
+	int		len;
+	char	*base;
 
-
-int	check_input_error(char **tab);
-int	check_num(char *s);
-int	check_double(char *s);
-int	check_atoi(char **tab);
-int	check_int(char *s);
-int *parse_input_in_tab(char *s);
-
-
-#endif
+	len = 0;
+	base = "0123456789abcdef";
+	if (n > 15)
+		len += ft_hex_putlptr(n / 16);
+	len += ft_putchar(base[n % 16]);
+	return (len);
+}

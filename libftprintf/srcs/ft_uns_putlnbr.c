@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_uns_putlnbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/15 13:43:42 by lleveque         ###   ########.fr       */
+/*   Created: 2021/12/08 11:54:17 by lleveque          #+#    #+#             */
+/*   Updated: 2021/12/08 19:47:31 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../ft_printf.h"
 
-#include "libft/libft.h"
-#include "libftprintf/ft_printf.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+int	ft_uns_putlnbr(unsigned int n)
+{
+	int	len;
 
-
-int	check_input_error(char **tab);
-int	check_num(char *s);
-int	check_double(char *s);
-int	check_atoi(char **tab);
-int	check_int(char *s);
-int *parse_input_in_tab(char *s);
-
-
-#endif
+	len = 0;
+	if (n > 9)
+		len += ft_uns_putlnbr(n / 10);
+	len += ft_putchar((n % 10) + '0');
+	return (len);
+}

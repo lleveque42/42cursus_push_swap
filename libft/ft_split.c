@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:30:03 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/01 10:10:36 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:29:51 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ static size_t	word_count(char const *s, char c)
 	count = 0;
 	if (!s)
 		return (0);
-	while (s[i] && s[i] == c)
+	while (s[i] != '\0' && s[i] == c)
 		i++;
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		count++;
-		while (s[i] && s[i] != c)
+		while (s[i] != '\0' && s[i] != c)
 			i++;
-		while (s[i] && s[i] == c)
+		while (s[i] != '\0' && s[i] == c)
 			i++;
 	}
 	return (count);
@@ -55,9 +55,9 @@ static size_t	word_len(char const *s, char c, size_t	i)
 	len = 0;
 	if (!s)
 		return (0);
-	while (s[i] && s[i] == c)
+	while (s[i] != '\0' && s[i] == c)
 		i++;
-	while (s[i] && s[i] != c)
+	while (s[i] != '\0' && s[i] != c)
 	{
 		i++;
 		len++;
@@ -70,9 +70,9 @@ static size_t	ft_strcpy_split(char const *s, char *tab, size_t i, char c)
 	size_t	j;
 
 	j = 0;
-	while (s && s[i] && s[i] == c)
+	while (s && s[i] != '\0' && s[i] == c)
 		i++;
-	while (s && s[i] && s[i] != c)
+	while (s && s[i] != '\0' && s[i] != c)
 	{
 		tab[j] = s[i];
 		j++;
@@ -106,6 +106,6 @@ char	**ft_split(char const *s, char c)
 		i = ft_strcpy_split(s, tab[j], i, c);
 		j++;
 	}
-	tab[j] = 0;
+	tab[j] = NULL;
 	return (tab);
 }
