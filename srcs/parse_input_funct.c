@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:14:54 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/17 11:44:59 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:38:27 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,46 @@ long long	*parse_input_in_tab(char **char_tab, size_t len)
 		i++;
 	}
 	return (int_tab);
+}
+
+t_ll_list	*ft_ll_lstnew(long long content)
+{
+	t_ll_list	*new;
+
+	new = malloc(sizeof(*new));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}
+
+t_ll_list	**parse_input_in_lst(long long *tab, size_t len)
+{
+	size_t		i;
+	t_ll_list	**lst;
+	t_ll_list	*tmp;
+
+	lst = malloc(sizeof(*lst) * len);
+	if (len > 0)
+	{
+		(*lst) = ft_ll_lstnew(tab[0]);
+		(*lst)->prev = NULL;
+	}
+	if (len > 1)
+	{
+		(*lst)->next = ft_ll_lstnew(tab[1]);
+		i = 2;
+		tmp = (*lst)->next;
+		while (i < len)
+		{
+			tmp->next = ft_ll_lstnew(tab[i]);
+			tmp->next->prev = tmp;
+			tmp = tmp->next;
+			i++;
+		}
+	}
+	else
+		(*lst)->next = NULL;
+	return (lst);
 }

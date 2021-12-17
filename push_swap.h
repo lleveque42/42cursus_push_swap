@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/16 19:17:43 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/17 21:59:09 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@
 
 typedef struct s_ll_list
 {
-	long long		*content;
-	struct s_list	*next;
+	struct s_ll_list		*prev;
+	long long			content;
+	struct s_ll_list	*next;
 }	t_ll_list;
 int	check_num(char *s);
 int	check_double(long long *tab, size_t len);
@@ -32,6 +33,7 @@ int	check_ll_min_and_max(char *s);
 int	ft_check_error(void);
 long long int	ft_atoll(char *nb);
 long long int	*parse_input_in_tab(char **char_tab, size_t len);
-
+t_ll_list	*ft_ll_lstnew(long long content);
+t_ll_list	**parse_input_in_lst(long long *tab, size_t len);
 
 #endif

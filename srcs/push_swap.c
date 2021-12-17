@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/17 11:51:00 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/17 22:40:12 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_ll_list	**parse_input(char *s)
 	ll_tab = parse_input_in_tab(char_tab, len);
 	if (check_double(ll_tab, len))
 		return (NULL);
-	lst = malloc(sizeof(t_ll_list) * len);
+	lst = parse_input_in_lst(ll_tab, len);
 	free(char_tab);
 	free(ll_tab);
 	return (lst);
@@ -54,12 +54,12 @@ t_ll_list	**parse_input(char *s)
 
 int	main(int ac, char **av)
 {
-	// t_ll_list	**lst;
+	t_ll_list	**lst;
 
 	if (ac != 2)
 		return (ft_error());
 	if (check_num(av[1]))
 		return (1);
-	parse_input(av[1]);
+	lst = parse_input(av[1]);
 	return (0);
 }
