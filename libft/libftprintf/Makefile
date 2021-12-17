@@ -1,5 +1,5 @@
 SRCS	= $(addprefix srcs/, ft_printf.c ft_putchar.c ft_putlstr.c ft_putlnbr.c \
-			ft_uns_putlnbr.c ft_hex_putlnbr.c ft_hex_putlptr.c)
+			ft_uns_putlnbr.c ft_hex_putlnbr.c ft_hex_putlptr.c ft_lld_putlnbr.c)
 
 OBJS	= ${SRCS:.c=.o}
 

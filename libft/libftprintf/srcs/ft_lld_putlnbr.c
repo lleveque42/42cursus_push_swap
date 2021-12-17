@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lld_putlnbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 10:21:53 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/09 10:50:00 by lleveque         ###   ########.fr       */
+/*   Created: 2021/12/15 19:31:59 by lleveque          #+#    #+#             */
+/*   Updated: 2021/12/16 18:01:23 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+int	ft_lld_putlnbr(long long n)
+{
+	int						len;
+	unsigned long long	n_cpy;
+	char	*base;
 
-int	ft_printf(const char *s, ...);
-int	ft_putchar(char c);
-int	ft_putlstr(char *s);
-int	ft_putlnbr(int n);
-int	ft_uns_putlnbr(unsigned int n);
-int	ft_hex_putlnbr(unsigned int n, char c);
-int	ft_hex_putlptr(unsigned long long int n);
-
-#endif
+	len = 0;
+	base = "0123456789";
+	n_cpy = n;
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n_cpy = n * -1;
+	}
+	if (n_cpy > 9)
+		len += ft_lld_putlnbr(n_cpy / 10);
+	len += ft_putchar(base[n_cpy % 10]);
+	return (len);
+}

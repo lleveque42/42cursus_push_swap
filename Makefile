@@ -6,11 +6,12 @@
 #    By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 09:52:26 by lleveque          #+#    #+#              #
-#    Updated: 2021/12/15 13:42:10 by lleveque         ###   ########.fr        #
+#    Updated: 2021/12/16 19:06:20 by lleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = $(addprefix srcs/, push_swap.c check_input_error.c parse_input_in_tab.c)
+SRCS = $(addprefix srcs/, push_swap.c check_error_funct.c parse_input_funct.c \
+		check_error_utils.c)
 
 OBJS = ${SRCS:.c=.o}
 
@@ -18,7 +19,7 @@ NAME = push_swap
 
 LIBFT = libft/libft.a
 
-PRINTF = libftprintf/libftprintf.a
+PRINTF = libft/libftprintf/libftprintf.a
 
 CC = clang
 
@@ -30,7 +31,7 @@ all:	${NAME}
 
 ${NAME}:	${OBJS}
 			@make -C libft
-			@make -C libftprintf
+			@make -C libft/libftprintf
 			@${CC} ${OBJS} ${CFLAG} -o ${NAME} ${LIBFT} ${PRINTF}
 
 .c.o:
@@ -38,7 +39,7 @@ ${NAME}:	${OBJS}
 
 clean:
 		@make -C libft clean
-		@make -C libftprintf clean
+		@make -C libft/libftprintf clean
 		${RM} ${OBJS}
 
 fclean:		clean
