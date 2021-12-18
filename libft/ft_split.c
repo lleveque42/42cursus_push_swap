@@ -6,11 +6,12 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:30:03 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/16 17:06:12 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/18 17:46:30 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../push_swap.h"
 
 static void	ft_free(char **tab)
 {

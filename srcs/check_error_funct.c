@@ -6,12 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:19:27 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/17 11:50:26 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/18 18:35:23 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 int	check_num(char *s)
 {
@@ -30,7 +29,7 @@ int	check_num(char *s)
 	return (0);
 }
 
-int	check_double(long long *tab, size_t len)
+int	check_double(int *tab, size_t len)
 {
 	size_t	i;
 	size_t	j;
@@ -72,7 +71,7 @@ int	check_atoi(char **tab)
 	return (0);
 }
 
-int	check_ll(char **tab)
+int	check_int(char **tab)
 {
 	size_t	i;
 	size_t	j;
@@ -90,11 +89,11 @@ int	check_ll(char **tab)
 			len++;
 			j++;
 		}
-		if (len > 19)
+		if (len > 10)
 			return (ft_check_error());
-		else if (len == 19)
+		else if (len == 10)
 		{
-			if (check_ll_min_and_max(tab[i]))
+			if (check_int_min_and_max(tab[i]))
 				return (ft_check_error());
 		}
 		i++;
