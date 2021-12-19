@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/18 18:35:36 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/19 22:58:17 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ t_int_list	**parse_input(char *s)
 	i = 0;
 	char_tab = ft_split(s);
 	if (check_int(char_tab) || check_atoi(char_tab))
-		return (NULL);
+		return (ft_free_char(char_tab));
 	while (char_tab[len])
 		len++;
 	int_tab = parse_input_in_tab(char_tab, len);
 	if (check_double(int_tab, len))
-		return (NULL);
+		return (ft_free_error(char_tab, int_tab));
 	lst = parse_input_in_lst(int_tab, len);
 	ft_free_char(char_tab);
 	free(int_tab);
@@ -47,13 +47,12 @@ int	main(int ac, char **av)
 	t_int_list	**lst;
 
 	if (ac != 2)
-		return (ft_error());
+		return (0);
 	if (check_num(av[1]))
 		return (1);
 	lst = parse_input(av[1]);
 	if (lst)
 	{
-		printf("\nlst = %p\n\n", &(**lst));
 		t_int_list	**tmp;
 		tmp = lst;
 		while (tmp)
@@ -71,7 +70,7 @@ int	main(int ac, char **av)
 			else
 				break;
 		}
-		// ft_free_lst(&(**lst));
+		ft_free_lst(lst);
 	}
 	return (0);
 }

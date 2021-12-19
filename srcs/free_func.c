@@ -6,39 +6,13 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 17:32:41 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/18 18:09:46 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/19 22:43:37 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_free_lst(t_int_list **lst)
-{
-	t_int_list	**tmp;
-	printf("lst = %p\n", &(*lst)->next);
-	printf("lst prev = %p\n", &(*lst)->prev);
-	printf("lst prev prev = %p\n", &(*lst)->prev->prev);
-	tmp = lst;
-	printf("tmp = %p\n", &(*tmp)->next);
-	printf("tmp prev = %p\n", &(*tmp)->prev);
-	printf("tmp prev prev = %p\n", &(*tmp)->prev->prev);
-	while (tmp)
-	{
-		if (((*tmp)->prev))
-			free((*tmp)->prev);
-		if (!((*tmp)->next))
-		{
-			free(tmp);
-			break;
-		}
-		else
-			tmp = &(*tmp)->next;
-	printf("tmp = %p\n", &(*tmp)->next);
-	}
-	free(lst);
-}
-
-void	ft_free_char(char **tab)
+void	*ft_free_char(char **tab)
 {
 	size_t	i;
 
@@ -49,4 +23,31 @@ void	ft_free_char(char **tab)
 		i++;
 	}
 	free(tab);
+	return (NULL);
+}
+
+void	*ft_free_error(char **char_tab, int *int_tab)
+{
+	if (char_tab)
+		ft_free_char(char_tab);
+	if (int_tab)
+		free(int_tab);
+	return (NULL);
+}
+
+void	ft_free_lst(t_int_list **lst)
+{
+	while (lst)
+	{
+		if (((*lst)->prev))
+			free((*lst)->prev);
+		if (!((*lst)->next))
+		{
+			free(*lst);
+			break;
+		}
+		else
+			*lst = (*lst)->next;
+	}
+	free(lst);
 }
