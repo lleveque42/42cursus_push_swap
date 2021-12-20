@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/19 22:58:17 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/20 12:59:08 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,10 @@ t_int_list	**parse_input(char *s)
 {
 	char 		**char_tab;
 	int			*int_tab;
-	t_int_list	**lst;
+	t_int_list	**stack_a;
 	size_t		len;
-	size_t		i;
 
 	len = 0;
-	i = 0;
 	char_tab = ft_split(s);
 	if (check_int(char_tab) || check_atoi(char_tab))
 		return (ft_free_char(char_tab));
@@ -36,25 +34,27 @@ t_int_list	**parse_input(char *s)
 	int_tab = parse_input_in_tab(char_tab, len);
 	if (check_double(int_tab, len))
 		return (ft_free_error(char_tab, int_tab));
-	lst = parse_input_in_lst(int_tab, len);
+	stack_a = parse_input_in_stack_a(int_tab, len);
 	ft_free_char(char_tab);
 	free(int_tab);
-	return (lst);
+	return (stack_a);
 }
 
 int	main(int ac, char **av)
 {
-	t_int_list	**lst;
+	t_int_list	**stack_a;
+	// t_int_list	**stack_b;
 
 	if (ac != 2)
 		return (0);
 	if (check_num(av[1]))
 		return (1);
-	lst = parse_input(av[1]);
-	if (lst)
+	stack_a = parse_input(av[1]);
+	// stack_b = create_stack_b;
+	if (stack_a)
 	{
 		t_int_list	**tmp;
-		tmp = lst;
+		tmp = stack_a;
 		while (tmp)
 		{
 			if ((*tmp)->next)
@@ -70,7 +70,7 @@ int	main(int ac, char **av)
 			else
 				break;
 		}
-		ft_free_lst(lst);
+		ft_free_lst(stack_a);
 	}
 	return (0);
 }

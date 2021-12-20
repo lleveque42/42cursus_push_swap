@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:19:27 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/18 18:35:23 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/20 13:30:01 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,24 +71,32 @@ int	check_atoi(char **tab)
 	return (0);
 }
 
+size_t	check_len(char *s)
+{
+	size_t	j;
+	size_t	len;
+
+	j = 0;
+	len = 0;
+	if (s[j] == '-' || s[j] == '+')
+		j++;
+	while (s[j])
+	{
+		len++;
+		j++;
+	}
+	return (len);
+}
+
 int	check_int(char **tab)
 {
 	size_t	i;
-	size_t	j;
 	size_t	len;
 
 	i = 0;
 	while (tab[i])
 	{
-		j = 0;
-		len = 0;
-		if (tab[i][j] == '-' || tab[i][j] == '+')
-			j++;
-		while (tab[i][j])
-		{
-			len++;
-			j++;
-		}
+		len = check_len(tab[i]);
 		if (len > 10)
 			return (ft_check_error());
 		else if (len == 10)

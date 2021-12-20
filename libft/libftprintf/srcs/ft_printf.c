@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 13:36:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/16 15:55:35 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/20 12:43:52 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,7 @@ int	ft_printf(const char *s, ...)
 	{
 		if (s[i] == '%')
 		{
-			if (s[i + 1] == 'l' && s[i + 2] == 'l' && s[i + 3] == 'd')
-			{
-				len += ft_lld_putlnbr(va_arg(arg, long long));
-				i += 2;
-			}
-			else if (s[i + 1])
+			if (s[i + 1])
 				len += what_arg(s[i + 1], arg);
 			i++;
 		}
