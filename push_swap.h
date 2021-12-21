@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 18:33:33 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:12:01 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ int			check_atoi(char **tab);
 int			check_int(char **tab);
 int			check_int_min_and_max(char *s);
 int			ft_check_error(void);
-void		ft_free_lst(t_int_list *lst);
+void		*ft_error(void);
+void		ft_free_lst(t_int_list **lst);
 void		*ft_free_char(char **tab);
 void		*ft_free_error(char **char_tab, int *int_tab);
 char		**parse_arg_in_tab(char **av);
 int			*parse_input_in_tab(char **char_tab, size_t len);
 t_int_list	*ft_int_lstnew(int content, void *prev);
-t_int_list	*parse_input_in_stack_a(int *tab, size_t len);
+t_int_list	**parse_input_in_stack_a(int *tab, size_t len);
 void		ft_int_lstadd_front(t_int_list **alst, t_int_list *new);
 void		swap_a(t_int_list **lst);
 void		swap_b(t_int_list **lst);

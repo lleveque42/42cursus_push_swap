@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 10:50:40 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/17 22:00:39 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:51:17 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	**ft_tab_join(char **tab, char **tab2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s);
 char	*ft_itoa(int n);

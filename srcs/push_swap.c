@@ -6,11 +6,29 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 10:07:43 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:39:26 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	print_lst(t_int_list **stack_a, t_int_list **stack_b)
+{
+	printf("a | b\n");
+	while ((*stack_a))
+	{
+		printf("%d | ", (*stack_a)->content);
+		if (stack_b && (*stack_b))
+			printf("%d", (*stack_b)->content);
+		printf("\n");
+		if (!(*stack_a)->next)
+			break;
+		if ((*stack_a) && (*stack_a)->next)
+			*stack_a = (*stack_a)->next;
+		if (stack_b && (*stack_b) && (*stack_b)->next)
+			*stack_b = (*stack_b)->next;
+	}
+}
 
 t_int_list	**parse_input(char **char_tab)
 {
@@ -37,34 +55,16 @@ int	main(int ac, char **av)
 	t_int_list	**stack_a;
 	t_int_list	**stack_b;
 
-	if (ac != 2)
+	if (ac < 2)
 		return (0);
-	if (check_num(av[1]))
-		return (1);
-	char_tab = ft_split(av[1]);
+	char_tab = parse_arg_in_tab(av);
 	if (!char_tab)
 		return (1);
 	stack_a = parse_input(char_tab);
-	stack_b = create_stack_b(char_tab);
+	stack_b = NULL;
 	if (stack_a)
 	{
-		t_int_list	**tmp;
-		tmp = stack_a;
-		while (tmp)
-		{
-			if ((*tmp)->next)
-				tmp = &(*tmp)->next;
-			else
-				break;
-		}
-		while (tmp)
-		{
-			printf("%d\n", (*tmp)->content);
-			if ((*tmp)->prev)
-				tmp = &(*tmp)->prev;
-			else
-				break;
-		}
+		// print_lst(stack_a, stack_b);
 		ft_free_char(char_tab);
 		ft_free_lst(stack_a);
 	}

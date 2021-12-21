@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 19:03:43 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 11:16:20 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:11:43 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@ int	ft_check_error(void)
 {
 	ft_printf("%s\n", "Error");
 	return (1);
+}
+
+void	*ft_error(void)
+{
+	ft_printf("%s\n", "Error");
+	return (NULL);
 }
 
 int	check_int_min_and_max(char *s)

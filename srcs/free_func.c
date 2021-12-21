@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 17:32:41 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 18:34:52 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:22:37 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@ void	*ft_free_char(char **tab)
 	size_t	i;
 
 	i = 0;
-	while (tab[i])
+	if (tab)
 	{
-		free(tab[i]);
-		i++;
+		while (tab[i])
+		{
+			free(tab[i]);
+			i++;
+		}
+		free(tab);
 	}
-	free(tab);
 	return (NULL);
 }
 
@@ -35,19 +38,19 @@ void	*ft_free_error(char **char_tab, int *int_tab)
 	return (NULL);
 }
 
-void	ft_free_lst(t_int_list *lst)
+void	ft_free_lst(t_int_list **lst)
 {
-	while (lst)
+	while (*lst)
 	{
-		if ((lst->prev))
-			free(lst->prev);
-		if (!(lst->next))
+		if ((*lst)->prev)
+			free((*lst)->prev);
+		if (!((*lst)->next))
 		{
-			free(lst);
+			free(*lst);
 			break;
 		}
 		else
-			lst = lst->next;
+			*lst = (*lst)->next;
 	}
 	free(lst);
 }
