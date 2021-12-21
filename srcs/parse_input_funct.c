@@ -6,11 +6,39 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:14:54 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/20 18:08:57 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:33:55 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "../libft/libft.h"
+
+char	**parse_arg_in_tab(char **av)
+{
+	size_t	i;
+	char	**to_join;
+	char	**char_tab;
+
+	i = 1;
+	char_tab = NULL;
+	while (av[i])
+	{
+		if (check_num(av[i]))
+			return (NULL);
+		i++;
+	}
+	i = 1;
+	while (av[i])
+	{
+		to_join = ft_split(av[i]);
+		if (!to_join)
+			return (ft_free_error(char_tab, NULL));
+		char_tab = ft_tab_join(char_tab, to_join);
+		i++;
+		ft_free_char(to_join);
+	}
+	return (char_tab);
+}
 
 int	*parse_input_in_tab(char **char_tab, size_t len)
 {
@@ -29,33 +57,20 @@ int	*parse_input_in_tab(char **char_tab, size_t len)
 	return (int_tab);
 }
 
-t_int_list	*ft_int_lstnew(int content, void *prev)
-{
-	t_int_list	*new;
-
-	new = malloc(sizeof(*new));
-	if (!new)
-		return (NULL);
-	new->prev = prev;
-	new->content = content;
-	new->next = NULL;
-	return (new);
-}
-
-t_int_list	**parse_input_in_stack_a(int *tab, size_t len)
+t_int_list	*parse_input_in_stack_a(int *tab, size_t len)
 {
 	size_t		i;
-	t_int_list	**lst;
+	t_int_list	*lst;
 	t_int_list	*tmp;
 
-	lst = malloc(sizeof(*lst) * len);
+	lst = malloc(sizeof(lst) * len);
 	if (len > 0)
-		(*lst) = ft_int_lstnew(tab[0], NULL);
+		lst = ft_int_lstnew(tab[0], NULL);
 	if (len > 1)
 	{
-		(*lst)->next = ft_int_lstnew(tab[1], &(**lst));
+		lst->next = ft_int_lstnew(tab[1], &(*lst));
 		i = 2;
-		tmp = (*lst)->next;
+		tmp = lst->next;
 		while (i < len)
 		{
 			tmp->next = ft_int_lstnew(tab[i], tmp);
@@ -66,38 +81,6 @@ t_int_list	**parse_input_in_stack_a(int *tab, size_t len)
 		}
 	}
 	else
-		(*lst)->next = NULL;
-	return (lst);
-}
-
-t_int_list	**create_stack_b(char **char_tab)
-{
-	size_t		len;
-	size_t		i;
-	t_int_list	**lst;
-	t_int_list	*tmp;
-
-	len = 0;
-	while (char_tab[len])
-		len++;
-	lst = malloc(sizeof(lst) * len);
-	if (len > 0)
-		(*lst) = ft_int_lstnew(0, NULL);
-	if (len > 1)
-	{
-		(*lst)->next = ft_int_lstnew(0, &(**lst));
-		i = 2;
-		tmp = (*lst)->next;
-		while (i < len)
-		{
-			tmp->next = ft_int_lstnew(0, tmp);
-			tmp = tmp->next;
-			i++;
-			if (i == (len - 1))
-				tmp->next = NULL;
-		}
-	}
-	else
-		(*lst)->next = NULL;
+		lst->next = NULL;
 	return (lst);
 }

@@ -6,7 +6,7 @@
 #    By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/20 12:59:54 by lleveque          #+#    #+#              #
-#    Updated: 2021/12/20 12:59:54 by lleveque         ###   ########.fr        #
+#    Updated: 2021/12/21 11:17:04 by lleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INC     = includes
 
 RM		= rm -f
 
-CC		= gcc
+CC		= clang
 
 CFLAGS	= -Wall -Wextra -Werror
 
