@@ -6,17 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 00:15:59 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/21 10:07:43 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-int	ft_error(void)
-{
-	ft_printf("%s\n", "Error");
-	return (1);
-}
 
 t_int_list	**parse_input(char **char_tab)
 {
