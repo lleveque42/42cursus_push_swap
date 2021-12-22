@@ -6,13 +6,13 @@
 #    By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 09:52:26 by lleveque          #+#    #+#              #
-#    Updated: 2021/12/22 13:06:41 by lleveque         ###   ########.fr        #
+#    Updated: 2021/12/22 19:05:22 by lleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = $(addprefix srcs/, push_swap.c check_error_funct.c parse_input_funct.c \
-		check_error_utils.c free_func.c operation_swap.c operation_push.c\
-		lst_func.c)
+		check_error_utils.c free_func.c lst_func.c operation_swap.c \
+		operation_push.c operation_rotate.c operation_reverse_rotate.c)
 
 OBJS = ${SRCS:.c=.o}
 

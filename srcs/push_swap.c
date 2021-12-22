@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 17:35:19 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 19:17:38 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,34 +80,20 @@ int	main(int ac, char **av)
 	{
 		print_lst(&stack_a, &stack_b);
 		push_b(&stack_a, &stack_b);
-		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
 		push_b(&stack_a, &stack_b);
 		print_lst(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
+		reverse_rotate_a(&stack_a);
 		print_lst(&stack_a, &stack_b);
-		swap_s(stack_a, stack_b);
+		reverse_rotate_b(&stack_b);
 		print_lst(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
-		print_lst(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
-		print_lst(&stack_a, &stack_b);
-		push_b(&stack_a, &stack_b);
-		print_lst(&stack_a, &stack_b);
-		swap_b(stack_b);
+		reverse_rotate_r(&stack_a, &stack_b);
 		print_lst(&stack_a, &stack_b);
 		push_a(&stack_b, &stack_a);
-		print_lst(&stack_a, &stack_b);
 		push_a(&stack_b, &stack_a);
-		print_lst(&stack_a, &stack_b);
 		push_a(&stack_b, &stack_a);
-		print_lst(&stack_a, &stack_b);
 		push_a(&stack_b, &stack_a);
-		print_lst(&stack_a, &stack_b);
-		push_a(&stack_b, &stack_a);
-		print_lst(&stack_a, &stack_b);
-		push_a(&stack_b, &stack_a);
-		print_lst(&stack_a, &stack_b);
-		swap_a(stack_a);
 		print_lst(&stack_a, &stack_b);
 		ft_free_char(char_tab);
 		ft_free_lst(&stack_a);

@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 15:48:37 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 19:13:09 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,11 @@ void		swap_b(t_int_list *lst);
 void		swap_s(t_int_list *stack_a, t_int_list *stack_b);
 void		push_a(t_int_list **src, t_int_list **dst);
 void		push_b(t_int_list **src, t_int_list **dst);
+void		rotate_a(t_int_list **lst);
+void		rotate_b(t_int_list	**lst);
+void		rotate_r(t_int_list **stack_a, t_int_list **stack_b);
+void		reverse_rotate_a(t_int_list	**lst);
+void		reverse_rotate_b(t_int_list	**lst);
+void		reverse_rotate_r(t_int_list **stack_a, t_int_list **stack_b);
 
 #endif
