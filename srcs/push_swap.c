@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 19:39:26 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 11:02:02 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,34 @@
 
 void	print_lst(t_int_list **stack_a, t_int_list **stack_b)
 {
+	t_int_list	**tmp_a;
+	t_int_list	**tmp_b;
+
+	tmp_a = stack_a;
+	tmp_b = stack_b;
 	printf("a | b\n");
-	while ((*stack_a))
+	while ((*tmp_a))
 	{
-		printf("%d | ", (*stack_a)->content);
-		if (stack_b && (*stack_b))
-			printf("%d", (*stack_b)->content);
+		printf("%d | ", (*tmp_a)->content);
+		if (tmp_b && (*tmp_b))
+			printf("%d", (*tmp_b)->content);
 		printf("\n");
-		if (!(*stack_a)->next)
+		if (!(*tmp_a)->next)
 			break;
-		if ((*stack_a) && (*stack_a)->next)
-			*stack_a = (*stack_a)->next;
-		if (stack_b && (*stack_b) && (*stack_b)->next)
-			*stack_b = (*stack_b)->next;
+		if ((*tmp_a) && (*tmp_a)->next)
+			tmp_a = &(*tmp_a)->next;
+		if (tmp_b && (*tmp_b) && (*tmp_b)->next)
+			tmp_b = &(*tmp_b)->next;
 	}
+	// while ((*tmp_a))
+	// {
+	// 	if (!(*tmp_a)->prev)
+	// 		break;
+	// 	if ((*tmp_a) && (*tmp_a)->prev)
+	// 		*tmp_a = (*tmp_a)->prev;
+	// 	if (tmp_b && (*tmp_b) && (*tmp_b)->prev)
+	// 		*tmp_b = (*tmp_b)->prev;
+	// }
 }
 
 t_int_list	**parse_input(char **char_tab)
@@ -64,7 +78,11 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (stack_a)
 	{
-		// print_lst(stack_a, stack_b);
+		print_lst(stack_a, stack_b);
+		swap_a(stack_a);
+		print_lst(stack_a, stack_b);
+		push_a(stack_a, stcak_b);
+		print_lst(stack_a, stack_b);
 		ft_free_char(char_tab);
 		ft_free_lst(stack_a);
 	}
