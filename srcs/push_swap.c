@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 11:02:02 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:35:19 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,41 @@
 
 void	print_lst(t_int_list **stack_a, t_int_list **stack_b)
 {
-	t_int_list	**tmp_a;
-	t_int_list	**tmp_b;
+	t_int_list	**tmp;
+	t_int_list	**tmp2;
 
-	tmp_a = stack_a;
-	tmp_b = stack_b;
-	printf("a | b\n");
-	while ((*tmp_a))
+	tmp = stack_a;
+	tmp2 = stack_b;
+	ft_printf("\n---------\n");
+	ft_printf("| a | b |\n");
+	ft_printf("---------\n");
+	while ((*tmp) != NULL || (*tmp2) != NULL)
 	{
-		printf("%d | ", (*tmp_a)->content);
-		if (tmp_b && (*tmp_b))
-			printf("%d", (*tmp_b)->content);
-		printf("\n");
-		if (!(*tmp_a)->next)
-			break;
-		if ((*tmp_a) && (*tmp_a)->next)
-			tmp_a = &(*tmp_a)->next;
-		if (tmp_b && (*tmp_b) && (*tmp_b)->next)
-			tmp_b = &(*tmp_b)->next;
+		if ((*tmp))
+		{
+			ft_printf("| %d", (*tmp)->content);
+			tmp = &(*tmp)->next;
+		}
+		else
+			ft_printf("|  ");
+		ft_printf(" | ");
+		if ((*tmp2))
+		{
+			ft_printf("%d |", (*tmp2)->content);
+			tmp2 = &(*tmp2)->next;
+		}
+		else
+			ft_printf("  |");
+		ft_printf("\n");
 	}
-	// while ((*tmp_a))
-	// {
-	// 	if (!(*tmp_a)->prev)
-	// 		break;
-	// 	if ((*tmp_a) && (*tmp_a)->prev)
-	// 		*tmp_a = (*tmp_a)->prev;
-	// 	if (tmp_b && (*tmp_b) && (*tmp_b)->prev)
-	// 		*tmp_b = (*tmp_b)->prev;
-	// }
+	ft_printf("---------\n\n");
 }
 
-t_int_list	**parse_input(char **char_tab)
+t_int_list	*parse_input(char **char_tab)
 {
 	size_t		len;
 	int			*int_tab;
-	t_int_list	**stack_a;
+	t_int_list	*stack_a;
 
 	len = 0;
 	while (char_tab[len])
@@ -66,8 +66,8 @@ t_int_list	**parse_input(char **char_tab)
 int	main(int ac, char **av)
 {
 	char		**char_tab;
-	t_int_list	**stack_a;
-	t_int_list	**stack_b;
+	t_int_list	*stack_a;
+	t_int_list	*stack_b;
 
 	if (ac < 2)
 		return (0);
@@ -78,13 +78,39 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (stack_a)
 	{
-		print_lst(stack_a, stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		print_lst(&stack_a, &stack_b);
+		swap_s(stack_a, stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_b(&stack_a, &stack_b);
+		print_lst(&stack_a, &stack_b);
+		swap_b(stack_b);
+		print_lst(&stack_a, &stack_b);
+		push_a(&stack_b, &stack_a);
+		print_lst(&stack_a, &stack_b);
+		push_a(&stack_b, &stack_a);
+		print_lst(&stack_a, &stack_b);
+		push_a(&stack_b, &stack_a);
+		print_lst(&stack_a, &stack_b);
+		push_a(&stack_b, &stack_a);
+		print_lst(&stack_a, &stack_b);
+		push_a(&stack_b, &stack_a);
+		print_lst(&stack_a, &stack_b);
+		push_a(&stack_b, &stack_a);
+		print_lst(&stack_a, &stack_b);
 		swap_a(stack_a);
-		print_lst(stack_a, stack_b);
-		push_a(stack_a, stcak_b);
-		print_lst(stack_a, stack_b);
+		print_lst(&stack_a, &stack_b);
 		ft_free_char(char_tab);
-		ft_free_lst(stack_a);
+		ft_free_lst(&stack_a);
 	}
 	return (0);
 }

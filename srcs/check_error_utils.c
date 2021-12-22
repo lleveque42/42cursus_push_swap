@@ -6,22 +6,36 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 19:03:43 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 19:11:43 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:41:06 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <limits.h>
 
+void	ft_putstr_error(void)
+{
+	char	*s;
+	size_t	i;
+
+	s = "Error\n";
+	i = 0;
+	while (s[i])
+	{
+		write(2, &s[i], 1);
+		i++;
+	}
+}
+
 int	ft_check_error(void)
 {
-	ft_printf("%s\n", "Error");
+	ft_putstr_error();
 	return (1);
 }
 
 void	*ft_error(void)
 {
-	ft_printf("%s\n", "Error");
+	ft_putstr_error();
 	return (NULL);
 }
 

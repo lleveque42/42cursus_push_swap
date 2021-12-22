@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 17:32:41 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 19:22:37 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:59:37 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,12 @@ void	*ft_free_error(char **char_tab, int *int_tab)
 
 void	ft_free_lst(t_int_list **lst)
 {
+	t_int_list	*tmp;
+
 	while (*lst)
 	{
-		if ((*lst)->prev)
-			free((*lst)->prev);
-		if (!((*lst)->next))
-		{
-			free(*lst);
-			break;
-		}
-		else
-			*lst = (*lst)->next;
+		tmp = *lst;
+		*lst = (*lst)->next;
+		free(tmp);
 	}
-	free(lst);
 }

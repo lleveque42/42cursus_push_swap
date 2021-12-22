@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:14:54 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 19:28:06 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 16:00:04 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,6 @@ char	**parse_arg_in_tab(char **av)
 		i++;
 		ft_free_char(to_join);
 	}
-	int j = 0;
-	while (char_tab[j])
-	{
-		printf("tab[%d] = %s\n", j, char_tab[j]);
-		j++;
-	}
 	return (char_tab);
 }
 
@@ -63,20 +57,19 @@ int	*parse_input_in_tab(char **char_tab, size_t len)
 	return (int_tab);
 }
 
-t_int_list	**parse_input_in_stack_a(int *tab, size_t len)
+t_int_list	*parse_input_in_stack_a(int *tab, size_t len)
 {
 	size_t		i;
-	t_int_list	**lst;
+	t_int_list	*lst;
 	t_int_list	*tmp;
 
-	lst = malloc(sizeof(*lst) * len);
 	if (len > 0)
-		(*lst) = ft_int_lstnew(tab[0], NULL);
+		lst = ft_int_lstnew(tab[0], NULL);
 	if (len > 1)
 	{
-		(*lst)->next = ft_int_lstnew(tab[1], &(**lst));
+		lst->next = ft_int_lstnew(tab[1], lst);
 		i = 2;
-		tmp = (*lst)->next;
+		tmp = lst->next;
 		while (i < len)
 		{
 			tmp->next = ft_int_lstnew(tab[i], tmp);
@@ -87,6 +80,6 @@ t_int_list	**parse_input_in_stack_a(int *tab, size_t len)
 		}
 	}
 	else
-		(*lst)->next = NULL;
+		lst->next = NULL;
 	return (lst);
 }

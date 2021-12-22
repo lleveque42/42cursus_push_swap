@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:19:27 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 11:17:59 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:41:42 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,7 @@ int	check_double(int *tab, size_t len)
 		while (j < len)
 		{
 			if (tab[i] == tab[j] && i != j)
-			{
-				printf("hello\n");
 				return (ft_check_error());
-			}
 			j++;
 		}
 		i++;
