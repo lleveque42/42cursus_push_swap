@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:55:07 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 19:12:28 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:14:40 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 int	reverse_rotate_func(t_int_list	**lst)
 {
-	int	bool;
 	t_int_list	*tmp;
 
-	bool = 0;
 	if (*lst && (*lst)->next)
 	{
 		tmp = *lst;
@@ -29,9 +27,9 @@ int	reverse_rotate_func(t_int_list	**lst)
 		(*lst)->prev = NULL;
 		while ((*lst)->prev)
 			*lst = (*lst)->prev;
-		bool = 1;
+		return (1);
 	}
-	return (bool);
+	return (0);
 }
 
 void	reverse_rotate_a(t_int_list	**lst)

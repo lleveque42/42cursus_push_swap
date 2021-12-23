@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:19:27 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 17:41:42 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:17:03 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_num(char *s)
 	while (s[i])
 	{
 		if (!(ft_isdigit(s[i]) || (s[i] >= 7 && s[i] <= 13) || s[i] == ' '
-				|| s[i] == '+'  || s[i] == '-'))
+				|| s[i] == '+' || s[i] == '-'))
 			return (ft_check_error());
 		i++;
 	}

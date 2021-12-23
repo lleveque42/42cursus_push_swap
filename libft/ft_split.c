@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:30:03 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/18 17:46:30 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:09:34 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ static size_t	word_count(char const *s)
 	count = 0;
 	if (!s)
 		return (0);
-	while (s[i] != '\0' && ((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+	while (s[i] != '\0' && ((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 		i++;
 	while (s[i] != '\0')
 	{
 		count++;
-		while (s[i] != '\0' && !((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+		while (s[i] != '\0' && !((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 			i++;
-		while (s[i] != '\0' && ((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+		while (s[i] != '\0' && ((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 			i++;
 	}
 	return (count);
@@ -56,9 +56,9 @@ static size_t	word_len(char const *s, size_t	i)
 	len = 0;
 	if (!s)
 		return (0);
-	while (s[i] != '\0' && ((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+	while (s[i] != '\0' && ((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 		i++;
-	while (s[i] != '\0' && !((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+	while (s[i] != '\0' && !((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 	{
 		i++;
 		len++;
@@ -71,9 +71,9 @@ static size_t	ft_strcpy_split(char const *s, char *tab, size_t i)
 	size_t	j;
 
 	j = 0;
-	while (s && s[i] != '\0' && ((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+	while (s && s[i] != '\0' && ((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 		i++;
-	while (s && s[i] != '\0' && !((s[i] >= 7 && s[i] <=13) || s[i] == 32))
+	while (s && s[i] != '\0' && !((s[i] >= 7 && s[i] <= 13) || s[i] == 32))
 	{
 		tab[j] = s[i];
 		j++;

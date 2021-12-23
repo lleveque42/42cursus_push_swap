@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:14:54 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 16:00:04 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:15:15 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	**parse_arg_in_tab(char **av)
 int	*parse_input_in_tab(char **char_tab, size_t len)
 {
 	size_t	i;
-	int	*int_tab;
+	int		*int_tab;
 
 	i = 0;
 	int_tab = malloc(sizeof(int) * len);

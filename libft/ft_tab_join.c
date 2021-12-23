@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/27 22:51:33 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 19:21:28 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:10:00 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	**ft_tab_join(char **tab, char **tab2)
 		j++;
 	}
 	dest[i + j] = NULL;
- 	if (tab)
+	if (tab)
 		ft_free_tab(tab);
 	return (dest);
 }

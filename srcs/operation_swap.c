@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 10:14:53 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 18:43:44 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:15:37 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 int	swap_func(t_int_list *lst)
 {
 	int	tmp;
-	int	bool;
 
-	bool = 0;
 	if (lst && lst->next)
 	{
 		tmp = lst->content;
 		lst->content = lst->next->content;
 		lst->next->content = tmp;
-		bool = 1;
+		return (1);
 	}
-	return (bool);
+	return (0);
 }
 
 void	swap_a(t_int_list *lst)

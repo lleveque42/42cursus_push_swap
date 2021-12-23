@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 11:20:35 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/01 18:17:06 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:11:48 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstadd_back(t_list **alst, t_list *new)
 	t_list	*tmp;
 
 	tmp = *alst;
-	if (!new) 
+	if (!new)
 		return ;
 	else if (!*alst)
 	{

@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:17:53 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 15:59:15 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:12:10 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		tmp = *lst;
-		*lst = (*lst) -> next;
+		*lst = (*lst)->next;
 		ft_lstdelone(tmp, del);
 	}
 }

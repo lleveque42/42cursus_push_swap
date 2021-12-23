@@ -6,18 +6,18 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 19:13:09 by lleveque         ###   ########.fr       */
+/*   Updated: 2021/12/23 11:11:15 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "libft/libft.h"
-#include "libft/libftprintf/ft_printf.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
+# include "libft/libft.h"
+# include "libft/libftprintf/ft_printf.h"
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_int_list
 {
