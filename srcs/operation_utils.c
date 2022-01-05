@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlnbr.c                                       :+:      :+:    :+:   */
+/*   operation_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/08 11:54:17 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/09 10:37:02 by lleveque         ###   ########.fr       */
+/*   Created: 2022/01/04 18:04:53 by lleveque          #+#    #+#             */
+/*   Updated: 2022/01/05 14:26:46 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "../push_swap.h"
 
-int	ft_putlnbr(int n)
+void	ft_putstr(char *s)
 {
-	int				len;
-	unsigned int	n_cpy;
+	size_t	i;
 
-	len = 0;
-	n_cpy = n;
-	if (n < 0)
+	i = 0;
+	if (s)
 	{
-		len += ft_putchar('-');
-		n_cpy = n * -1;
+		while (s[i])
+		{
+			write(1, &s[i], 1);
+			i++;
+		}
 	}
-	if (n_cpy > 9)
-		len += ft_putlnbr(n_cpy / 10);
-	len += ft_putchar((n_cpy % 10) + '0');
-	return (len);
 }

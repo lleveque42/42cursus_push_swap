@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 11:27:53 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 18:51:51 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/04 19:22:35 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_with_next(t_int_list **src, t_int_list **dst)
 {
-	(*src) = (*src)->next;
+	*src = (*src)->next;
 	if (!*dst)
 	{
 		*dst = (*src)->prev;
@@ -23,7 +23,7 @@ void	push_with_next(t_int_list **src, t_int_list **dst)
 	else
 	{
 		(*dst)->prev = (*src)->prev;
-		(*dst)->prev->next = (*dst);
+		(*dst)->prev->next = *dst;
 		*dst = (*dst)->prev;
 	}
 	(*src)->prev = NULL;
@@ -39,46 +39,32 @@ void	push_without_next(t_int_list **src, t_int_list **dst)
 	else
 	{
 		(*dst)->prev = *src;
-		(*dst)->prev->next = (*dst);
+		(*dst)->prev->next = *dst;
 		*dst = (*dst)->prev;
 	}
-	(*src) = NULL;
+	*src = NULL;
 }
 
 void	push_a(t_int_list **src, t_int_list **dst)
 {
-	int	bool;
-
-	bool = 0;
-	if (*src && (*src)->next)
+	if (*src)
 	{
-		push_with_next(src, dst);
-		bool += 1;
+		if ((*src)->next)
+			push_with_next(src, dst);
+		else if (!(*src)->next)
+			push_without_next(src, dst);
+		ft_putstr("pa\n");
 	}
-	else if (*src && !(*src)->next)
-	{
-		push_without_next(src, dst);
-		bool += 1;
-	}
-	if (bool)
-		ft_printf("pa\n");
 }
 
 void	push_b(t_int_list **src, t_int_list **dst)
 {
-	int	bool;
-
-	bool = 0;
-	if (*src && (*src)->next)
+	if (*src)
 	{
-		push_with_next(src, dst);
-		bool += 1;
+		if ((*src)->next)
+			push_with_next(src, dst);
+		else if (!(*src)->next)
+			push_without_next(src, dst);
+		ft_putstr("pb\n");
 	}
-	else if (*src && !(*src)->next)
-	{
-		push_without_next(src, dst);
-		bool += 1;
-	}
-	if (bool)
-		ft_printf("pb\n");
 }

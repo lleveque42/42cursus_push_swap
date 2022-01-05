@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 10:14:53 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/23 11:15:37 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/04 18:07:46 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	swap_func(t_int_list *lst)
 void	swap_a(t_int_list *lst)
 {
 	if (swap_func(lst))
-		ft_printf("sa\n");
+		ft_putstr("sa\n");
 }
 
 void	swap_b(t_int_list *lst)
 {
 	if (swap_func(lst))
-		ft_printf("sb\n");
+		ft_putstr("sb\n");
 }
 
 void	swap_s(t_int_list *stack_a, t_int_list *stack_b)
@@ -48,5 +48,5 @@ void	swap_s(t_int_list *stack_a, t_int_list *stack_b)
 	if (swap_func(stack_b))
 		bool += 1;
 	if (bool)
-		ft_printf("ss\n");
+		ft_putstr("ss\n");
 }

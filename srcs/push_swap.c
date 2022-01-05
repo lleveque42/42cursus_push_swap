@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/26 05:16:44 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/05 13:40:09 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,29 @@ void	print_lst(t_int_list **stack_a, t_int_list **stack_b)
 
 	tmp = stack_a;
 	tmp2 = stack_b;
-	ft_printf("\n---------\n");
-	ft_printf("| a | b |\n");
-	ft_printf("---------\n");
+	printf("\n-----------------\n");
+	printf("|   a   |   b   |\n");
+	printf("-----------------\n");
 	while ((*tmp) != NULL || (*tmp2) != NULL)
 	{
 		if ((*tmp))
 		{
-			ft_printf("| %d", (*tmp)->content);
+			printf("| %d [%d]", (*tmp)->content, (*tmp)->index);
 			tmp = &(*tmp)->next;
 		}
 		else
-			ft_printf("|  ");
-		ft_printf(" | ");
+			printf("|    ");
+		printf(" | ");
 		if ((*tmp2))
 		{
-			ft_printf("%d |", (*tmp2)->content);
+			printf("%d [%d] |", (*tmp2)->content, (*tmp2)->index);
 			tmp2 = &(*tmp2)->next;
 		}
 		else
-			ft_printf("  |");
-		ft_printf("\n");
+			printf("      |");
+		printf("\n");
 	}
-	ft_printf("---------\n\n");
+	printf("-----------------\n\n");
 }
 
 t_int_list	*parse_input(char **char_tab)
@@ -78,6 +78,7 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (stack_a)
 	{
+		put_index(&stack_a);
 		print_lst(&stack_a, &stack_b);
 		sort_list(&stack_a, &stack_b);
 		print_lst(&stack_a, &stack_b);

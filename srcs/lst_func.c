@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:46:06 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/21 18:51:54 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/05 14:00:35 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_int_list	*ft_int_lstnew(int content, void *prev)
 		return (NULL);
 	new->prev = prev;
 	new->content = content;
+	new->index = -1;
 	new->next = NULL;
 	return (new);
 }
