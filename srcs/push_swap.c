@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/05 13:40:09 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/06 16:42:59 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int ac, char **av)
 	char		**char_tab;
 	t_int_list	*stack_a;
 	t_int_list	*stack_b;
+	int			len;
 
 	if (ac < 2)
 		return (0);
@@ -78,10 +79,12 @@ int	main(int ac, char **av)
 	stack_b = NULL;
 	if (stack_a)
 	{
-		put_index(&stack_a);
-		print_lst(&stack_a, &stack_b);
-		sort_list(&stack_a, &stack_b);
-		print_lst(&stack_a, &stack_b);
+		// print_lst(&stack_a, &stack_b);
+		len = put_index(&stack_a);
+		// print_lst(&stack_a, &stack_b);
+		sort_list(&stack_a, &stack_b, len);
+		// printf("\n\n-------SORT-------\n\n\n");
+		// print_lst(&stack_a, &stack_b);
 		ft_free_char(char_tab);
 		ft_free_lst(&stack_a);
 	}

@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:25:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/05 14:51:28 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/05 17:29:08 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	put_0_in_lowest(t_int_list **stack_a, int lowest)
 	(*stack_a)->index = 0;
 }
 
-void	put_last_in_highest(t_int_list **stack_a, int highest)
+size_t	put_last_in_highest(t_int_list **stack_a, int highest)
 {
 	t_int_list	*first;
 	size_t		len;
@@ -36,6 +36,7 @@ void	put_last_in_highest(t_int_list **stack_a, int highest)
 		*stack_a = (*stack_a)->next;
 	(*stack_a)->index = len;
 	*stack_a = first;
+	return (len);
 }
 
 int	is_index_sorted(t_int_list **stack_a)
@@ -63,7 +64,7 @@ int	get_next(t_int_list **stack_a, int prev, int highest)
 	return (next);
 }
 
-void	put_index(t_int_list **stack_a)
+int	put_index(t_int_list **stack_a)
 {
 	int			lowest;
 	int			highest;
@@ -88,4 +89,5 @@ void	put_index(t_int_list **stack_a)
 		*stack_a = first;
 	}
 	*stack_a = first;
+	return (index);
 }
