@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 16:41:36 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/06 20:51:35 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ int			put_index(t_int_list **stack_a);
 int			is_sorted(t_int_list **lst);
 int			get_highest(t_int_list **lst);
 int			get_lowest(t_int_list **lst);
-int 		is_in_second_part(t_int_list **lst, int i, int len);
+int 		is_in_second_part(t_int_list **lst, int i);
+int			is_chunk_in_second_part(t_int_list **lst, int i, int chunk);
 void		sort_list(t_int_list **stack_a, t_int_list **stack_b, int len);
 void		sort_3_list(t_int_list **stack_a, int len);
 void		sort_10_list(t_int_list **stack_a, t_int_list **stack_b, int len);
 void		sort_short_list(t_int_list **stack_a, t_int_list **stack_b, int len);
+void		sort_long_list(t_int_list **stack_a, t_int_list **stack_b, int len);
 
 #endif

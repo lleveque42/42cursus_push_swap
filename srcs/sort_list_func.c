@@ -6,19 +6,55 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 05:17:04 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 16:38:28 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/06 20:49:11 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int is_in_second_part(t_int_list **lst, int i, int len)
+size_t	get_list_size(t_int_list **lst)
 {
-	while ((*lst)->index != (len / 2 + i))
+	size_t	i;
+
+	i = 0;
+	while (*lst)
+	{
+		lst = &(*lst)->next;
+		i++;
+	}
+	return (i);
+}
+
+int is_chunk_in_second_part(t_int_list **lst, int i, int chunk)
+{
+	size_t	len;
+	size_t j;
+
+	len = get_list_size(lst);
+	j = 0;
+	while (j <= (len / 2 + 3))
+	{
+		if ((*lst)->index >= i && (*lst)->index <= chunk)
+			return (0);
+		lst = &(*lst)->next;
+		j++;
+	}
+	return (1);
+}
+
+int is_in_second_part(t_int_list **lst, int i)
+{
+	size_t	len;
+	size_t j;
+
+	len = get_list_size(lst);
+	j = 0;
+	while (j <= (len / 2 + 2))
 	{
 		if ((*lst)->index == i)
 			return (0);
 		lst = &(*lst)->next;
+		j++;
 	}
 	return (1);
 }
