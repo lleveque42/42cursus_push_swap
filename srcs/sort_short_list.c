@@ -6,24 +6,24 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 17:46:03 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 21:06:41 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:08:18 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort_short_list(t_int_list **stack_a, t_int_list **stack_b, int len)
+void	push_short_b(t_int_list **stack_a, t_int_list **stack_b)
 {
-	int	i;
+	int i;
 	int	chunk_begin;
 	int	chunk_end;
 
 	i = 0;
 	chunk_begin = 0;
-	chunk_end = len / 4;
-	while ((*stack_a) != NULL && !is_sorted(stack_a))
+	chunk_end = get_chunk_size(get_list_size(stack_a));
+	while ((*stack_a) && !is_sorted(stack_a))
 	{
-		while ((*stack_a) != NULL && i <= chunk_end)
+		while ((*stack_a) && i <= chunk_end)
 		{
 			if ((*stack_a)->index >= chunk_begin && (*stack_a)->index <= chunk_end)
 			{
@@ -31,16 +31,21 @@ void	sort_short_list(t_int_list **stack_a, t_int_list **stack_b, int len)
 				i++;
 			}
 			else if ((*stack_a)->next->index >= chunk_begin
-				&& (*stack_a)->next->index <= chunk_end)
+					&& (*stack_a)->next->index <= chunk_end)
 				swap_a(stack_a);
-			// else if (is_chunk_in_second_part(stack_a, i, chunk_end))
-			// 	reverse_rotate_a(stack_a);
 			else
 				rotate_a(stack_a);
 		}
 		chunk_begin = chunk_end;
-		chunk_end += len / 4 + 1;
+		chunk_end += get_chunk_size(get_list_size(stack_a));
 	}
+}
+
+void	sort_short_list(t_int_list **stack_a, t_int_list **stack_b, int len)
+{
+	int	i;
+
+	push_short_b(stack_a, stack_b);
 	if (*stack_a)
 		i = (*stack_a)->index - 1;
 	else

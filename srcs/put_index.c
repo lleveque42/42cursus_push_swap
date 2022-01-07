@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:25:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/05 17:29:08 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:11:43 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,4 @@ int	put_index(t_int_list **stack_a)
 	*stack_a = first;
 	return (index);
 }
+

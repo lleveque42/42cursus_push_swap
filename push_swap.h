@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 20:51:35 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 16:08:45 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,13 @@ void		reverse_rotate_a(t_int_list	**lst);
 void		reverse_rotate_b(t_int_list	**lst);
 void		reverse_rotate_r(t_int_list **stack_a, t_int_list **stack_b);
 int			put_index(t_int_list **stack_a);
+int			get_list_size(t_int_list **lst);
+int    		get_chunk_size(int size);
 int			is_sorted(t_int_list **lst);
 int			get_highest(t_int_list **lst);
 int			get_lowest(t_int_list **lst);
 int 		is_in_second_part(t_int_list **lst, int i);
-int			is_chunk_in_second_part(t_int_list **lst, int i, int chunk);
+int			is_chunk_in_first_part(t_int_list **lst, int chunk_begin, int chunk_end);
 void		sort_list(t_int_list **stack_a, t_int_list **stack_b, int len);
 void		sort_3_list(t_int_list **stack_a, int len);
 void		sort_10_list(t_int_list **stack_a, t_int_list **stack_b, int len);

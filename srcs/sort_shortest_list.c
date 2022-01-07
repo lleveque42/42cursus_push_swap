@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 13:41:47 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 19:16:23 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 15:33:10 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sort_3_list(t_int_list **stack_a, int len)
 	{
 		if ((*stack_a)->index == i)
 			i--;
-		else if ((*stack_a)->next->index == i)
+		 if ((*stack_a)->next->index == i)
 		{
 			swap_a(stack_a);
 			i--;

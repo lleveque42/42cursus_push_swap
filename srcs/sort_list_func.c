@@ -6,15 +6,40 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 05:17:04 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 20:49:11 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 15:53:44 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-size_t	get_list_size(t_int_list **lst)
+int    get_chunk_size(int size)
 {
-	size_t	i;
+	int	chunk_size;
+
+	if (size < 10)
+		chunk_size = size;
+	else if (size < 25)
+		chunk_size = 25 / 3;
+	else if (size < 50)
+		chunk_size = 50 / 4;
+	else if (size < 100)
+		chunk_size = 100 / 5;
+	else if (size < 200)
+		chunk_size = 200 / 7;
+	else if (size < 300)
+		chunk_size = 300 / 9;
+	else if (size < 400)
+		chunk_size = 400 / 11;
+    else if (size < 500)
+		chunk_size = 500 / 13;
+	else
+		chunk_size = size / 20;
+	return (chunk_size);
+}
+
+int	get_list_size(t_int_list **lst)
+{
+	int	i;
 
 	i = 0;
 	while (*lst)
@@ -25,7 +50,7 @@ size_t	get_list_size(t_int_list **lst)
 	return (i);
 }
 
-int is_chunk_in_second_part(t_int_list **lst, int i, int chunk)
+int is_chunk_in_first_part(t_int_list **lst, int chunk_begin, int chunk_end)
 {
 	size_t	len;
 	size_t j;
@@ -34,12 +59,12 @@ int is_chunk_in_second_part(t_int_list **lst, int i, int chunk)
 	j = 0;
 	while (j <= (len / 2 + 3))
 	{
-		if ((*lst)->index >= i && (*lst)->index <= chunk)
-			return (0);
+		if ((*lst)->index >= chunk_begin && (*lst)->index <= chunk_end)
+			return (1);
 		lst = &(*lst)->next;
 		j++;
 	}
-	return (1);
+	return (0);
 }
 
 int is_in_second_part(t_int_list **lst, int i)
