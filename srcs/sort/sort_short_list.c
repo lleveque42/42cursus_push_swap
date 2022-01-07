@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_shortest_list.c                               :+:      :+:    :+:   */
+/*   sort_short_list.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 13:41:47 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 15:33:10 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 18:57:52 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-void	sort_3_list(t_int_list **stack_a, int len)
+void	sort_3_list(t_stack **stack_a, int len)
 {
-	int i;
+	int	i;
 
 	i = len;
 	while (!is_sorted(stack_a))
 	{
 		if ((*stack_a)->index == i)
 			i--;
-		 if ((*stack_a)->next->index == i)
+		if ((*stack_a)->next->index == i)
 		{
 			swap_a(stack_a);
 			i--;
@@ -33,12 +33,13 @@ void	sort_3_list(t_int_list **stack_a, int len)
 	}
 }
 
-void	sort_10_list(t_int_list **stack_a, t_int_list **stack_b, int len)
+void	sort_10_list(t_stack **stack_a, t_stack **stack_b, int len)
 {
 	int	i;
 
 	i = 0;
-	while (i < len && !is_sorted(stack_a))
+	(void)len;
+	while (!is_sorted(stack_a))
 	{
 		if ((*stack_a)->index == i)
 		{
@@ -55,4 +56,3 @@ void	sort_10_list(t_int_list **stack_a, t_int_list **stack_b, int len)
 	while (*stack_b)
 		push_a(stack_b, stack_a);
 }
-

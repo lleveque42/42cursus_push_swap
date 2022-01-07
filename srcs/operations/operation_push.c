@@ -6,13 +6,13 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 11:27:53 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/04 19:22:35 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:15 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-void	push_with_next(t_int_list **src, t_int_list **dst)
+void	push_with_next(t_stack **src, t_stack **dst)
 {
 	*src = (*src)->next;
 	if (!*dst)
@@ -29,7 +29,7 @@ void	push_with_next(t_int_list **src, t_int_list **dst)
 	(*src)->prev = NULL;
 }
 
-void	push_without_next(t_int_list **src, t_int_list **dst)
+void	push_without_next(t_stack **src, t_stack **dst)
 {
 	if (!*dst)
 	{
@@ -45,7 +45,7 @@ void	push_without_next(t_int_list **src, t_int_list **dst)
 	*src = NULL;
 }
 
-void	push_a(t_int_list **src, t_int_list **dst)
+void	push_a(t_stack **src, t_stack **dst)
 {
 	if (*src)
 	{
@@ -57,7 +57,7 @@ void	push_a(t_int_list **src, t_int_list **dst)
 	}
 }
 
-void	push_b(t_int_list **src, t_int_list **dst)
+void	push_b(t_stack **src, t_stack **dst)
 {
 	if (*src)
 	{

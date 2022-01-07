@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_rotate.c                                 :+:      :+:    :+:   */
+/*   operation_reverse_rotate.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/22 18:06:35 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/04 18:07:41 by lleveque         ###   ########.fr       */
+/*   Created: 2021/12/22 18:55:07 by lleveque          #+#    #+#             */
+/*   Updated: 2022/01/07 17:00:34 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	rotate_func(t_int_list **lst)
+int	reverse_rotate_func(t_stack	**lst)
 {
-	t_int_list	*tmp;
+	t_stack	*tmp;
 
 	if (*lst && (*lst)->next)
 	{
-		tmp = (*lst);
-		(*lst)->next->prev = NULL;
+		tmp = *lst;
 		while ((*lst)->next)
 			*lst = (*lst)->next;
 		(*lst)->next = tmp;
-		tmp->next = NULL;
-		tmp->prev = *lst;
+		(*lst)->next->prev = *lst;
+		(*lst)->prev->next = NULL;
+		(*lst)->prev = NULL;
 		while ((*lst)->prev)
 			*lst = (*lst)->prev;
 		return (1);
@@ -32,26 +32,27 @@ int	rotate_func(t_int_list **lst)
 	return (0);
 }
 
-void	rotate_a(t_int_list **lst)
+void	reverse_rotate_a(t_stack	**lst)
 {
-	if (rotate_func(lst))
-		ft_putstr("ra\n");
+	if (reverse_rotate_func(lst))
+		ft_putstr("rra\n");
 }
 
-void	rotate_b(t_int_list	**lst)
+void	reverse_rotate_b(t_stack	**lst)
 {
-	if (rotate_func(lst))
-		ft_putstr("rb\n");
+	if (reverse_rotate_func(lst))
+		ft_putstr("rrb\n");
 }
 
-void	rotate_r(t_int_list **stack_a, t_int_list **stack_b)
+void	reverse_rotate_r(t_stack **stack_a, t_stack **stack_b)
 {
 	int	bool;
 
 	bool = 0;
-	if (rotate_func(stack_a))
+	if (reverse_rotate_func(stack_a))
 		bool += 1;
-	if (rotate_func(stack_b))
+	if (reverse_rotate_func(stack_b))
 		bool += 1;
-	ft_putstr("rr\n");
+	if (bool)
+		ft_putstr("rr\n");
 }

@@ -6,13 +6,13 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 10:14:53 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/06 15:22:55 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:40 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	swap_func(t_int_list **lst)
+int	swap_func(t_stack **lst)
 {
 	int	tmp_content;
 	int	tmp_index;
@@ -30,19 +30,19 @@ int	swap_func(t_int_list **lst)
 	return (0);
 }
 
-void	swap_a(t_int_list **lst)
+void	swap_a(t_stack **lst)
 {
 	if (swap_func(lst))
 		ft_putstr("sa\n");
 }
 
-void	swap_b(t_int_list **lst)
+void	swap_b(t_stack **lst)
 {
 	if (swap_func(lst))
 		ft_putstr("sb\n");
 }
 
-void	swap_s(t_int_list **stack_a, t_int_list **stack_b)
+void	swap_s(t_stack **stack_a, t_stack **stack_b)
 {
 	int	bool;
 

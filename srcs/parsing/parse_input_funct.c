@@ -6,12 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 12:14:54 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/23 11:15:15 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:04 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include "../libft/libft.h"
+#include "../../push_swap.h"
 
 char	**parse_arg_in_tab(char **av)
 {
@@ -57,11 +56,11 @@ int	*parse_input_in_tab(char **char_tab, size_t len)
 	return (int_tab);
 }
 
-t_int_list	*parse_input_in_stack_a(int *tab, size_t len)
+t_stack	*parse_input_in_stack_a(int *tab, size_t len)
 {
-	size_t		i;
-	t_int_list	*lst;
-	t_int_list	*tmp;
+	size_t	i;
+	t_stack	*lst;
+	t_stack	*tmp;
 
 	if (len > 0)
 		lst = ft_int_lstnew(tab[0], NULL);

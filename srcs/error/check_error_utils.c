@@ -6,12 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 19:03:43 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/22 17:41:06 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:19 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
-#include <limits.h>
+#include "../../push_swap.h"
 
 void	ft_putstr_error(void)
 {

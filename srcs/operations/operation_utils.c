@@ -6,11 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 18:04:53 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/05 14:26:46 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:42 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 void	ft_putstr(char *s)
 {

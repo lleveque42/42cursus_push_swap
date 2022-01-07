@@ -6,49 +6,49 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 15:51:54 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 19:04:05 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_lst(t_int_list **stack_a, t_int_list **stack_b)
-{
-	t_int_list	**tmp;
-	t_int_list	**tmp2;
+// void	print_lst(t_stack **stack_a, t_stack **stack_b)
+// {
+// 	t_stack	**tmp;
+// 	t_stack	**tmp2;
 
-	tmp = stack_a;
-	tmp2 = stack_b;
-	printf("\n-----------------\n");
-	printf("|   a   |   b   |\n");
-	printf("-----------------\n");
-	while ((*tmp) != NULL || (*tmp2) != NULL)
-	{
-		if ((*tmp))
-		{
-			printf("| %d [%d]", (*tmp)->content, (*tmp)->index);
-			tmp = &(*tmp)->next;
-		}
-		else
-			printf("|    ");
-		printf(" | ");
-		if ((*tmp2))
-		{
-			printf("%d [%d] |", (*tmp2)->content, (*tmp2)->index);
-			tmp2 = &(*tmp2)->next;
-		}
-		else
-			printf("      |");
-		printf("\n");
-	}
-	printf("-----------------\n\n");
-}
+// 	tmp = stack_a;
+// 	tmp2 = stack_b;
+// 	printf("\n-----------------\n");
+// 	printf("|   a   |   b   |\n");
+// 	printf("-----------------\n");
+// 	while ((*tmp) != NULL || (*tmp2) != NULL)
+// 	{
+// 		if ((*tmp))
+// 		{
+// 			printf("| %d [%d]", (*tmp)->content, (*tmp)->index);
+// 			tmp = &(*tmp)->next;
+// 		}
+// 		else
+// 			printf("|    ");
+// 		printf(" | ");
+// 		if ((*tmp2))
+// 		{
+// 			printf("%d [%d] |", (*tmp2)->content, (*tmp2)->index);
+// 			tmp2 = &(*tmp2)->next;
+// 		}
+// 		else
+// 			printf("      |");
+// 		printf("\n");
+// 	}
+// 	printf("-----------------\n\n");
+// }
 
-t_int_list	*parse_input(char **char_tab)
+t_stack	*parse_input(char **char_tab)
 {
-	size_t		len;
-	int			*int_tab;
-	t_int_list	*stack_a;
+	size_t	len;
+	int		*int_tab;
+	t_stack	*stack_a;
 
 	len = 0;
 	while (char_tab[len])
@@ -65,10 +65,10 @@ t_int_list	*parse_input(char **char_tab)
 
 int	main(int ac, char **av)
 {
-	char		**char_tab;
-	t_int_list	*stack_a;
-	t_int_list	*stack_b;
-	int			len;
+	char	**char_tab;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
+	int		len;
 
 	if (ac < 2)
 		return (0);
@@ -81,7 +81,6 @@ int	main(int ac, char **av)
 	{
 		len = put_index(&stack_a);
 		sort_list(&stack_a, &stack_b, len);
-		// print_lst(&stack_a, &stack_b);
 		ft_free_char(char_tab);
 		ft_free_lst(&stack_a);
 	}

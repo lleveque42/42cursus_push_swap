@@ -6,11 +6,11 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 10:19:27 by lleveque          #+#    #+#             */
-/*   Updated: 2021/12/23 11:17:03 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:09 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
 int	check_num(char *s)
 {

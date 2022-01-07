@@ -6,23 +6,23 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:25:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 16:11:43 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/07 17:00:01 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-void	put_0_in_lowest(t_int_list **stack_a, int lowest)
+void	put_0_in_lowest(t_stack **stack_a, int lowest)
 {
 	while ((*stack_a)->content != lowest)
 		stack_a = &(*stack_a)->next;
 	(*stack_a)->index = 0;
 }
 
-size_t	put_last_in_highest(t_int_list **stack_a, int highest)
+size_t	put_last_in_highest(t_stack **stack_a, int highest)
 {
-	t_int_list	*first;
-	size_t		len;
+	t_stack	*first;
+	size_t	len;
 
 	len = 0;
 	first = *stack_a;
@@ -39,7 +39,7 @@ size_t	put_last_in_highest(t_int_list **stack_a, int highest)
 	return (len);
 }
 
-int	is_index_sorted(t_int_list **stack_a)
+int	is_index_sorted(t_stack **stack_a)
 {
 	while (*stack_a)
 	{
@@ -50,7 +50,7 @@ int	is_index_sorted(t_int_list **stack_a)
 	return (1);
 }
 
-int	get_next(t_int_list **stack_a, int prev, int highest)
+int	get_next(t_stack **stack_a, int prev, int highest)
 {
 	int	next;
 
@@ -64,13 +64,13 @@ int	get_next(t_int_list **stack_a, int prev, int highest)
 	return (next);
 }
 
-int	put_index(t_int_list **stack_a)
+int	put_index(t_stack **stack_a)
 {
-	int			lowest;
-	int			highest;
-	int			index;
-	int			next;
-	t_int_list	*first;
+	int		lowest;
+	int		highest;
+	int		index;
+	int		next;
+	t_stack	*first;
 
 	lowest = get_lowest(stack_a);
 	highest = get_highest(stack_a);
@@ -91,4 +91,3 @@ int	put_index(t_int_list **stack_a)
 	*stack_a = first;
 	return (index);
 }
-
