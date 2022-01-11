@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 20:51:02 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 19:04:49 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/11 13:43:35 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	put_in_b(t_stack **stack_a, t_stack **stack_b, int ch_begin, int ch_end)
 				push_b(stack_a, stack_b);
 				i++;
 			}
-			else if ((*stack_a)->next->index >= ch_begin
+			else if ((*stack_a)->next && (*stack_a)->next->index >= ch_begin
 				&& (*stack_a)->next->index <= ch_end)
 				swap_a(stack_a);
 			else if (ra_or_rra(stack_a, ch_begin, ch_end))

@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/22 18:55:07 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 17:00:34 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/11 09:43:44 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ void	reverse_rotate_r(t_stack **stack_a, t_stack **stack_b)
 	if (reverse_rotate_func(stack_b))
 		bool += 1;
 	if (bool)
-		ft_putstr("rr\n");
+		ft_putstr("rrr\n");
 }
