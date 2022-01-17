@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 05:17:04 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 19:01:09 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/12 11:36:06 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	get_lowest(t_stack **lst)
 				lowest = (*lst)->content;
 		}
 		else
-				lowest = (*lst)->content;
+			lowest = (*lst)->content;
 		lst = &(*lst)->next;
 		i++;
 	}

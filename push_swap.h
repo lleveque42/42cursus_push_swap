@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 17:38:58 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/12 11:08:11 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	sort_3_list(t_stack **stack_a, int len);
 void	sort_10_list(t_stack **stack_a, t_stack **stack_b, int len);
 void	sort_short_list(t_stack **stack_a, t_stack **stack_b, int len);
 void	sort_long_list(t_stack **stack_a, t_stack **stack_b, int len);
+void	radix_sort_list(t_stack **stack_a, t_stack **stack_b, int len);
 
 #endif

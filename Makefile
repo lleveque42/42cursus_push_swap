@@ -6,7 +6,7 @@
 #    By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/15 09:52:26 by lleveque          #+#    #+#              #
-#    Updated: 2022/01/07 17:24:19 by lleveque         ###   ########.fr        #
+#    Updated: 2022/01/12 11:06:46 by lleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS = $(addprefix srcs/, push_swap.c error/check_error_funct.c error/check_erro
 		operations/operation_swap.c operations/operation_push.c operations/operation_rotate.c \
 		operations/operation_reverse_rotate.c operations/operation_utils.c \
 		sort/sort_list.c sort/sort_list_func.c sort/sort_short_list.c \
-		sort/sort_long_list.c sort/sort_list_func_2.c)
+		sort/sort_long_list.c sort/sort_list_func_2.c sort/radix_sort_list.c)
 
 OBJS = ${SRCS:.c=.o}
 

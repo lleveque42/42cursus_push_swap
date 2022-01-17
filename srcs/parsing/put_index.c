@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 13:25:59 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/07 17:00:01 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/12 11:35:50 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ size_t	put_last_in_highest(t_stack **stack_a, int highest)
 	first = *stack_a;
 	while ((*stack_a)->next)
 	{
-			*stack_a = (*stack_a)->next;
-			len++;
+		*stack_a = (*stack_a)->next;
+		len++;
 	}
 	*stack_a = first;
 	while ((*stack_a)->content != highest)
