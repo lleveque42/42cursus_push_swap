@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 12:34:57 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/12 11:08:11 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/17 16:51:51 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	*ft_error(void);
 void	ft_free_lst(t_stack **lst);
 void	*ft_free_char(char **tab);
 void	*ft_free_error(char **char_tab, int *int_tab);
+void	ft_putstr_error(void);
 char	**parse_arg_in_tab(char **av);
 int		*parse_input_in_tab(char **char_tab, size_t len);
 t_stack	*ft_int_lstnew(int content, void *prev);

@@ -6,7 +6,7 @@
 /*   By: lleveque <lleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:52:16 by lleveque          #+#    #+#             */
-/*   Updated: 2022/01/17 14:32:55 by lleveque         ###   ########.fr       */
+/*   Updated: 2022/01/17 17:06:16 by lleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,13 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
+	else if (ac == 2 && av[1][0] == '\0')
+		return (0);
 	char_tab = parse_arg_in_tab(av);
 	if (!char_tab)
 		return (1);
-	if (!char_tab[1])
-		return (0);
+	if (!char_tab[0])
+		return (1);
 	stack_a = parse_input(char_tab);
 	stack_b = NULL;
 	if (stack_a)
